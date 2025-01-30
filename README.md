@@ -1,1 +1,1 @@
-# HSE_database_course
+# HSE DB ontro class :)
