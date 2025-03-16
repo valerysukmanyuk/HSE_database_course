@@ -1,1 +1,1 @@
-# HSE DB ontro class :)
+# HSE DB intro class :)
