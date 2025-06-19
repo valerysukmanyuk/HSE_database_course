@@ -1,0 +1,65 @@
+// Я начал делать телеграмм бота с заданиями по английскому языку как пет-проектик, вытаскиваю оттуда небольшой кусок бд на MONGO. В нем я работаю с монгодб через питон, но в проекте нет таких запросов, какие требуют условия задания. 
+// Все команды из MongoShell.
+
+// Подключаюсь к бд English_bot
+use English_bot
+
+// Вставляю в коллекцию tasks несколько нагенеренных заданий
+db.tasks.insertMany([
+  {
+  "level": "A2", 
+  "category": "Грамматика",
+  "Topic": "Past Simple",
+  "difficulty": 2,
+  "question": "Выберите правильный вариант: She ___ to the park yesterday.",
+  "questionType": "multiple_choice",
+  "options": ["go", "goed", "went", "gone"],
+  "correctAnswer": "went",
+  "explanation": "Неправильная форма глагола go в Past Simple — went."
+}, 
+  {
+    "level": "A2",
+    "category": "Лексика",
+    "Topic": "Настоящее простое время",
+    "difficulty": 1,
+    "question": "Выберите правильную форму глагола: He ___ to school every day.",
+    "questionType": "multiple_choice",
+    "options": ["go", "goes", "going", "gone"],
+    "correctAnswer": "goes",
+    "explanation": "В третьем лице единственного числа в Present Simple глаголу добавляется -s: goes."
+  },
+    {
+  "level": "A1", 
+  "category": "Грамматика",
+  "Topic": "Past Simple",
+  "difficulty": 2,
+  "question": "Выберите правильный вариант: She ___ with her friends yesterday.",
+  "questionType": "multiple_choice",
+  "options": ["meet", "meeted", "met","mate"],
+  "correctAnswer": "met",
+  "explanation": "Неправильная форма глагола meet в Past Simple — met."
+}
+])
+
+// Обновляю во всех А2 задания категорию на лексика и грамматика
+db.tasks.updateMany(
+  { "level": "A2" },
+  { $set: { "category": "Лексика и грамматика" } })
+
+// Найти все задания уровня A2
+db.tasks.find({ "level": "A2" })
+
+// Найти все задания по теме "Past simple"
+db.tasks.find({ "Topic": "Past Simple" })
+
+// Найти все задания уровня A2 и категории "Лексика и грамматика"
+db.tasks.find({ "level": "A2", "category": "Лексика и грамматика" })
+
+// Найти все задания, где сложность 2 или тема "Настоящее простое время"
+db.tasks.find({ $or: [{ "difficulty": 2 }, 
+{"Topic": "Настоящее простое время" }]})
+
+// Удалить задание с уровнем A2 и сложностью 2
+db.tasks.deleteOne({ "level": "A2", "difficulty": 2 })
+
+

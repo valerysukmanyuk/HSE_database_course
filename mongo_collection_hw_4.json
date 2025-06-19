@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "6853f3bf0039e457e6875fee"
+  },
+  "level": "A2",
+  "category": "Лексика и грамматика",
+  "Topic": "Настоящее простое время",
+  "difficulty": 1,
+  "question": "Выберите правильную форму глагола: He ___ to school every day.",
+  "questionType": "multiple_choice",
+  "options": [
+    "go",
+    "goes",
+    "going",
+    "gone"
+  ],
+  "correctAnswer": "goes",
+  "explanation": "В третьем лице единственного числа в Present Simple глаголу добавляется -s: goes."
+},
+{
+  "_id": {
+    "$oid": "6853f3bf0039e457e6875fef"
+  },
+  "level": "A1",
+  "category": "Грамматика",
+  "Topic": "Past Simple",
+  "difficulty": 2,
+  "question": "Выберите правильный вариант: She ___ with her friends yesterday.",
+  "questionType": "multiple_choice",
+  "options": [
+    "meet",
+    "meeted",
+    "met",
+    "mate"
+  ],
+  "correctAnswer": "met",
+  "explanation": "Неправильная форма глагола meet в Past Simple — met."
+}]
